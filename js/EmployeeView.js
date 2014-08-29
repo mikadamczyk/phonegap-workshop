@@ -12,6 +12,15 @@ var EmployeeView = function(employee) {
     };
 
     this.addToContacts = function(event) {
+
+        function onSuccess(contact) {
+            alert("Save Success");
+        }
+
+        function onError(contactError) {
+            alert("Error = " + contactError.code);
+        }
+
         event.preventDefault();
 //        console.log('addToContacts');
 //        console.log(navigator.contacts);
@@ -25,8 +34,7 @@ var EmployeeView = function(employee) {
         phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
         phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
-        contact.save();
-        alert('contact.save');
+        contact.save(onSuccess,onError);
         return false;
     };
 
