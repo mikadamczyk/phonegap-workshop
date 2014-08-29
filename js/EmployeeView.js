@@ -13,8 +13,8 @@ var EmployeeView = function(employee) {
 
     this.addToContacts = function(event) {
         event.preventDefault();
-        console.log('addToContacts');
-        console.log(navigator.contacts);
+//        console.log('addToContacts');
+//        console.log(navigator.contacts);
         if (!navigator.contacts) {
             app.showAlert("Contacts API not supported", "Error");
             return;
@@ -26,15 +26,17 @@ var EmployeeView = function(employee) {
         phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
         contact.save();
+        alert('contact.save');
         return false;
     };
 
     this.addLocation = function(event) {
         event.preventDefault();
-        console.log('addLocation');
+//        console.log('addLocation');
         navigator.geolocation.getCurrentPosition(
             function(position) {
                 $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
+                alert('contact.save');
             },
             function() {
                 alert('Error getting location');
