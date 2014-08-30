@@ -26,6 +26,9 @@
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.GeoBroker" />
+    </feature>
 
     <preference name="permissions"                value="none"/>
     <preference name="phonegap-version"           value="3.3.0" />
