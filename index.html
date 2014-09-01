@@ -1,45 +1,45 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <script src="css/source-sans-pro.js"></script>
-    <link href="css/styles.css" rel="stylesheet">
+    <title>Device Properties Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+
+        // onSuccess Geolocation
+        //
+        function onSuccess(position) {
+            var element = document.getElementById('geolocation');
+            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                    'Heading: '            + position.coords.heading               + '<br />' +
+                    'Speed: '              + position.coords.speed                 + '<br />' +
+                    'Timestamp: '          + position.timestamp                    + '<br />';
+        }
+
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                    'message: ' + error.message + '\n');
+        }
+
+    </script>
 </head>
 <body>
-<script id="home-tpl" type="text/x-handlebars-template">
-    <div class='header'><h1>Home</h1></div>
-    <div class='search-bar'><input class='search-key' type="search"/></div>
-    <div class="scroll"><ul class='employee-list'></ul></div>
-</script>
-
-<script id="employee-li-tpl" type="text/x-handlebars-template">
-    {{#.}}
-    <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
-    {{/.}}
-</script>
-
-<script id="employee-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
-    <div class='details'>
-        <img class='employee-image' src='img/{{firstName}}_{{lastName}}.jpg' />
-        <h1>{{firstName}} {{lastName}}</h1>
-        <h2>{{title}}</h2>
-        <span class="location"></span>
-        <ul>
-            <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
-            <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
-            <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
-            <li><a href="#" class="add-location-btn">Add Location</a></li>
-            <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
-            <li><a href="#" class="change-pic-btn">Change Picture</a></li>
-        </ul>
-    </div>
-</script>
-
-<script src="cordova.js"></script>
-<script src="lib/jquery-1.8.2.min.js"></script>
-<script src="js/storage/memory-store.js"></script>
-<script src="lib/handlebars.js"></script>
-<script src="js/HomeView.js"></script>
-<script src="js/EmployeeView.js"></script>
-<script src="js/main.js"></script>
+<p id="geolocation">Finding geolocation...</p>
 </body>
 </html>
