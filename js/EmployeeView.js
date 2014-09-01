@@ -75,38 +75,38 @@ var EmployeeView = function(employee) {
             return;
         }
 
-        var onSuccess = function(position) {
-            app.showAlert('Latitude: '          + position.coords.latitude          + '\n' +
-                'Longitude: '         + position.coords.longitude         + '\n' +
-                'Altitude: '          + position.coords.altitude          + '\n' +
-                'Accuracy: '          + position.coords.accuracy          + '\n' +
-                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-                'Heading: '           + position.coords.heading           + '\n' +
-                'Speed: '             + position.coords.speed             + '\n' +
-                'Timestamp: '         + position.timestamp                + '\n');
-        };
+//        var onSuccess = function(position) {
+//            app.showAlert('Latitude: '          + position.coords.latitude          + '\n' +
+//                'Longitude: '         + position.coords.longitude         + '\n' +
+//                'Altitude: '          + position.coords.altitude          + '\n' +
+//                'Accuracy: '          + position.coords.accuracy          + '\n' +
+//                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+//                'Heading: '           + position.coords.heading           + '\n' +
+//                'Speed: '             + position.coords.speed             + '\n' +
+//                'Timestamp: '         + position.timestamp                + '\n');
+//        };
 
 // onError Callback receives a PositionError object
 //
-        function onError(error) {
-            app.showAlert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-        }
+//        function onError(error) {
+//            app.showAlert('code: '    + error.code    + '\n' +
+//                'message: ' + error.message + '\n');
+//        }
 
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//
+//        app.showAlert('Latitude done.');
 
-        app.showAlert('Latitude done.');
-
-//        navigator.geolocation.getCurrentPosition(
-//            function(position) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
 //                app.showAlert("Get Current Position");
-//                $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
+                $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
 //                app.showAlert("Get Current Position");
-//            },
-//            function() {
+            },
+            function() {
 //                app.showAlert("Error getting locatio");
-//            });
-//        return false;
+            });
+        return false;
     };
 
     this.initialize();
