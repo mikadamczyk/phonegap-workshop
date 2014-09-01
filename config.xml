@@ -27,7 +27,7 @@
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
     <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.GeoBroker" />
+        <param name="android-package" value="org.apache.cordova.geolocation" />
     </feature>
 
     <preference name="permissions"                value="none"/>
@@ -56,9 +56,9 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.contacts" version="0.2.3" />
     <gap:plugin name="org.apache.cordova.camera" version="0.2.3" />
-    <gap:plugin name="org.apache.cordova.GeoBroker" version="0.2.3" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.2" />
     <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
-    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+    <plugin name="Geolocation" value="org.apache.cordova.geolocation" />
 
     <access origin="*" browserOnly="true"/>
 
