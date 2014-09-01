@@ -56,7 +56,10 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.contacts" version="0.2.3" />
     <gap:plugin name="org.apache.cordova.camera" version="0.2.3" />
+    <gap:plugin name="org.apache.cordova.GeoBroker" version="0.2.3" />
     <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+
     <access origin="*" browserOnly="true"/>
 
 </widget>
