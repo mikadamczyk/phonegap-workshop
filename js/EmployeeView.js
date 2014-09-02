@@ -88,23 +88,22 @@ var EmployeeView = function(employee) {
 
 // onError Callback receives a PositionError object
 //
-//        function onError(error) {
-//            app.showAlert('code: '    + error.code    + '\n' +
-//                'message: ' + error.message + '\n');
-//        }
+        function onError(error) {
+            app.showAlert('code: '    + error.code    + ' ' +
+                'message: ' + error.message + ' ');
+        }
 
 //        navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //
         navigator.geolocation.getCurrentPosition(
             function(position) {
-                app.showAlert("Get Current Position");
+                app.showAlert('Yes.');
+//                app.showAlert("Get Current Position");
                 $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
+//                app.showAlert("Get Current Position");
             },
-            function() {
-                app.showAlert('Location API error. Code: '    + error.code    + ' ' +
-                'message: ' + error.message + ' ');
-            },
-            {timeout: 30000, enableHighAccuracy: true, maximumAge: 30000} //or true
+            onError,
+            {timeout: 10000, enableHighAccuracy: false, maximumAge: 30000} //or true
         );
         return false;
     };
@@ -114,8 +113,3 @@ var EmployeeView = function(employee) {
 };
 
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
-
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-        'message: ' + error.message + '\n');
-}
