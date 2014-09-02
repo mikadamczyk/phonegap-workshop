@@ -101,7 +101,8 @@ var EmployeeView = function(employee) {
                 $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
             },
             function() {
-                app.showAlert('Location API error.');
+                app.showAlert('Location API error. Code: '    + error.code    + ' ' +
+                'message: ' + error.message + ' ');
             },
             {timeout: 30000, enableHighAccuracy: true, maximumAge: 30000} //or true
         );
@@ -113,3 +114,8 @@ var EmployeeView = function(employee) {
 };
 
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
+
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
+}
