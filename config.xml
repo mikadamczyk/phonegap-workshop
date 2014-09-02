@@ -58,6 +58,7 @@
     <gap:plugin name="org.apache.cordova.camera" version="0.2.3" />
     <gap:plugin name="org.apache.cordova.geolocation" version="0.3.2" />
     <gap:platform name="android" />
+    <gap:platform name="winphone" />
     <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
     <plugin name="Geolocation" value="org.apache.cordova.geolocation" />
     <access origin="*" browserOnly="true"/>
