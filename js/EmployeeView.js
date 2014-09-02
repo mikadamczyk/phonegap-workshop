@@ -95,17 +95,16 @@ var EmployeeView = function(employee) {
 
 //        navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //
-//        app.showAlert('Latitude done.');
-
         navigator.geolocation.getCurrentPosition(
             function(position) {
-//                app.showAlert("Get Current Position");
+                app.showAlert("Get Current Position");
                 $('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
-//                app.showAlert("Get Current Position");
             },
             function() {
-//                app.showAlert("Error getting locatio");
-            });
+                app.showAlert('Location API error.');
+            },
+            {timeout: 30000, enableHighAccuracy: true, maximumAge: 30000} //or true
+        );
         return false;
     };
 
